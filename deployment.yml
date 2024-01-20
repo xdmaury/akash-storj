@@ -3,13 +3,12 @@ version: "2.0"
 services:
   storj-gateway:
     image: xdmaury/akash-storj:v0.0.1
-    env: 
-      - ACCESS_GRANT=<grant-key>
     expose:
       - port: 7777
         to:
           - global: true
-
+    env:
+      - ACCESS_GRANT=<grant-key>
 profiles:
   compute:
     storj-gateway:
@@ -29,6 +28,5 @@ profiles:
 deployment:
   storj-gateway:
     dcloud:
-      profile: ipal-api
+      profile: storj-gateway
       count: 1
- 
